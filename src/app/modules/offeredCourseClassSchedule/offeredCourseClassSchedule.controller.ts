@@ -1,56 +1,37 @@
 import { NextFunction, Request, Response } from 'express';
 import sendResponse from '../../../shared/response';
 import { OfferedCourseClassScheduleService } from './offeredCourseClassSchedule.service';
+import catchAsync from '../../../shared/catchAsync';
 
-const createOfferedCourseClassSchedule = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const result = await OfferedCourseClassScheduleService.createOfferedCourseClassSchedule(req);
-      sendResponse(res, result);
-    } catch (error) {
-      next(error);
-    }
-  };
+const createOfferedCourseClassSchedule = catchAsync(async (req: Request, res: Response) => {
+  const result = await OfferedCourseClassScheduleService.createOfferedCourseClassSchedule(req);
+  sendResponse(res, result);
+});
 
-const getAllOfferedCourseClassSchedules = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await OfferedCourseClassScheduleService.getAllOfferedCourseClassSchedules(req);
-    sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+const getAllOfferedCourseClassSchedules = catchAsync(async (req: Request, res: Response) => {
+  const result = await OfferedCourseClassScheduleService.getAllOfferedCourseClassSchedules(req);
+  sendResponse(res, result);
+});
 
-const getSinglOfferedCourseClassSchedule = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await OfferedCourseClassScheduleService.getSinglOfferedCourseClassSchedule(req);
-    sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+const getSinglOfferedCourseClassSchedule = catchAsync(async (req: Request, res: Response) => {
+  const result = await OfferedCourseClassScheduleService.getSinglOfferedCourseClassSchedule(req);
+  sendResponse(res, result);
+});
 
-const updatOfferedCourseClassSchedule = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await OfferedCourseClassScheduleService.updatOfferedCourseClassSchedule(req);
-    sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+const updatOfferedCourseClassSchedule = catchAsync(async (req: Request, res: Response) => {
+  const result = await OfferedCourseClassScheduleService.updatOfferedCourseClassSchedule(req);
+  sendResponse(res, result);
+});
 
-const deleteOfferedCourseClassSchedule = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await OfferedCourseClassScheduleService.deleteOfferedCourseClassSchedule(req);
-    sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+const deleteOfferedCourseClassSchedule = catchAsync(async (req: Request, res: Response) => {
+  const result = await OfferedCourseClassScheduleService.deleteOfferedCourseClassSchedule(req);
+  sendResponse(res, result);
+});
 
 export const OfferedCourseClassScheduleController = {
-    createOfferedCourseClassSchedule,
-    getAllOfferedCourseClassSchedules,
-    getSinglOfferedCourseClassSchedule,
-    updatOfferedCourseClassSchedule,
-    deleteOfferedCourseClassSchedule
+  createOfferedCourseClassSchedule,
+  getAllOfferedCourseClassSchedules,
+  getSinglOfferedCourseClassSchedule,
+  updatOfferedCourseClassSchedule,
+  deleteOfferedCourseClassSchedule
 };

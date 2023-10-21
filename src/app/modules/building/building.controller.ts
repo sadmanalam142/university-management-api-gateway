@@ -1,52 +1,32 @@
 import { NextFunction, Request, Response } from 'express';
 import sendResponse from '../../../shared/response';
 import { BuildingService } from './building.service';
+import catchAsync from '../../../shared/catchAsync';
 
-const createBuilding = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const result = await BuildingService.createBuilding(req);
-      sendResponse(res, result);
-    } catch (error) {
-      next(error);
-    }
-  };
-  
-
-const getAllBuildings = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await BuildingService.getAllBuildings(req);
+const createBuilding = catchAsync(async (req: Request, res: Response) => {
+  const result = await BuildingService.createBuilding(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const getSingleBuilding = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await BuildingService.getSingleBuilding(req);
+const getAllBuildings = catchAsync(async (req: Request, res: Response) => {
+  const result = await BuildingService.getAllBuildings(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const updateBuilding = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await BuildingService.updateBuilding(req);
+const getSingleBuilding = catchAsync(async (req: Request, res: Response) => {
+  const result = await BuildingService.getSingleBuilding(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const deleteBuilding = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await BuildingService.deleteBuilding(req);
+const updateBuilding = catchAsync(async (req: Request, res: Response) => {
+  const result = await BuildingService.updateBuilding(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
+
+const deleteBuilding = catchAsync(async (req: Request, res: Response) => {
+  const result = await BuildingService.deleteBuilding(req);
+    sendResponse(res, result);
+});
 
 export const BuildingController = {
     createBuilding,

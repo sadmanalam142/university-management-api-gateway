@@ -1,51 +1,32 @@
 import { NextFunction, Request, Response } from 'express';
 import sendResponse from '../../../shared/response';
 import { AcademicDepartmentService } from './academicDepartment.service';
+import catchAsync from '../../../shared/catchAsync';
 
-const createDepartment = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const result = await AcademicDepartmentService.createDepartment(req);
-      sendResponse(res, result);
-    } catch (error) {
-      next(error);
-    }
-  };
-
-const getAllDepartments = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await AcademicDepartmentService.getAllDepartments(req);
+const createDepartment = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicDepartmentService.createDepartment(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const getSingleDepartment = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await AcademicDepartmentService.getSingleDepartment(req);
+const getAllDepartments = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicDepartmentService.getAllDepartments(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const updateDepartment = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await AcademicDepartmentService.updateDepartment(req);
+const getSingleDepartment = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicDepartmentService.getSingleDepartment(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-const deleteDepartment = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const result = await AcademicDepartmentService.deleteDepartment(req);
+const updateDepartment = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicDepartmentService.updateDepartment(req);
     sendResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
-};
+});
+
+const deleteDepartment = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicDepartmentService.deleteDepartment(req);
+    sendResponse(res, result);
+});
 
 export const AcademicDepartmentController = {
     createDepartment,

@@ -10,6 +10,14 @@ import { SemesterRegistrationRoutes } from '../modules/semesterRegistration/seme
 import { OfferedCourseRoutes } from '../modules/offeredCourse/offeredCourse.route';
 import { OfferedCourseSectionRoutes } from '../modules/offeredCourseSection/offeredCourseSection.route';
 import { OfferedCourseClassScheduleRoutes } from '../modules/offeredCourseClassSchedule/offeredCourseClassSchedule.route';
+import { ManagementDepartmentRoutes } from '../modules/managementDepartment/managementDepartment.route';
+import { StudentRoutes } from '../modules/student/student.route';
+import { FacultyRoutes } from '../modules/faculty/faculty.route';
+import { AdminRoutes } from '../modules/admin/admin.route';
+import { AuthRoutes } from '../modules/auth/auth.route';
+import { StudentEnrolledCourseMarkRoutes } from '../modules/studentEnrollrdCourseMark/studentEnrollrdCourseMark.route';
+import { StudentSemesterPaymentRoutes } from '../modules/studentSemesterPayment/studentSemesterPayment.route';
+import { StudentEnrolledCourseRoutes } from '../modules/studentEnrolledCourse/studentEnrolledCourse.route';
 
 const router = express.Router();
 
@@ -17,6 +25,26 @@ const moduleRoutes = [
   {
     path: '/user',
     routes: UserRoutes.router
+  },
+  {
+    path: '/student',
+    routes: StudentRoutes.router
+  },
+  {
+    path: '/faculty',
+    routes: FacultyRoutes.router
+  },
+  {
+    path: '/admin',
+    routes: AdminRoutes.router
+  },
+  {
+    path: '/auth',
+    routes: AuthRoutes.router
+  },
+  {
+    path: '/management-department',
+    routes: ManagementDepartmentRoutes.router
   },
   {
     path: '/academic-semester',
@@ -57,6 +85,18 @@ const moduleRoutes = [
   {
     path: '/offered-course-class-schedule',
     routes: OfferedCourseClassScheduleRoutes.router
+  },
+  {
+    path: '/student-enrolled-course',
+    routes: StudentEnrolledCourseRoutes.router
+  },
+  {
+    path: '/student-mark',
+    routes: StudentEnrolledCourseMarkRoutes.router
+  },
+  {
+    path: '/student-semester-payment',
+    routes: StudentSemesterPaymentRoutes.router
   }
 ];
 

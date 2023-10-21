@@ -4,7 +4,7 @@ import { coreService as HttpService } from '../../../shared/axios';
 
 const createOfferedCourseClassSchedule = async (req: Request): Promise<IGenericResponse> => {
     const response: IGenericResponse = await HttpService.post(
-      '/offered-course-class-schedules/create-schedule',
+      '/offered-course-class-schedule/create-schedule',
       req.body,
       {
         headers: {
